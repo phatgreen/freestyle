@@ -1,0 +1,8 @@
+$files = glob('path/to/temp/*'); // get all file names
+foreach($files as $file){ // iterate files
+  if(is_file($file)) {
+    unlink($file); // delete file
+  }
+}
+If you want to remove 'hidden' files like .htaccess, you have to use
+$files = glob('path/to/temp/{,.}*', GLOB_BRACE);
