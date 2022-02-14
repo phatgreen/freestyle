@@ -1,0 +1,40 @@
+// Cú Pháp
+currency_format($number[, $suffix = 'đ'])
+
+// Giải thích biến
+$number: Số cần hiển thị định dạng tiền tệ
+$suffix: Đơn vị của tiền tệ đang làm việc như “vnđ”, “USD”…
+
+// Hàm xử lý
+<?php
+/**
+ *
+ * Chuyển đổi chuỗi kí tự thành dạng slug dùng cho việc tạo friendly url.
+ *
+ * @access    public
+ * @param    string
+ * @return    string
+ */
+if (!function_exists('currency_format')) {
+    function currency_format($number, $suffix = 'đ') {
+        if (!empty($number)) {
+            return number_format($number, 0, ',', '.') . "{$suffix}";
+        }
+    }
+}
+
+// Gọi hàm
+<?php
+echo currency_format(5000000);
+?>
+
+// kết quả 
+5.000.000đ
+
+// Gọi hàm theo định dạng USD
+<?php
+echo currency_format(37, 'USD');
+?>
+
+// Kết quả
+37USD
